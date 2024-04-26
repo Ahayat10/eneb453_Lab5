@@ -2,11 +2,12 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/api/validate-user', (req, res) => {
-  const user = {
+const user = {
     username: 'username',
     password: 'password'
   };
+
+app.get('/api/validate-user', (req, res) => {
 
   const { username, password } = req.query;
 
@@ -15,6 +16,7 @@ app.get('/api/validate-user', (req, res) => {
   } else {
     res.status(401).json({ success: false, message: 'Invalid credentials' });
   }
+
 });
 
 app.get('/', (req, res) => {
